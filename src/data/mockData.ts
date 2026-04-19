@@ -20,16 +20,22 @@ export const players: Player[] = [
     name: "خالد رونالدو",
     avatarUrl: "../imgs/khaled/15.jpg",
     posters: [
-      { id: "1", title: "احتفال هدف", imageUrl: "../imgs/khaled/1C.jpg", category: "مهاجم" },
-      { id: "2", title: "لحظة تسديد", imageUrl: "../imgs/khaled/3.jpg", category: "مهاجم" },
-      { id: "1", title: "احتفال هدف", imageUrl: "../imgs/khaled/4.jpg", category: "مهاجم" },
-      { id: "2", title: "لحظة تسديد", imageUrl: "../imgs/khaled/5.jpg", category: "مهاجم" },
-      { id: "1", title: "احتفال هدف", imageUrl: "../imgs/khaled/6.jpg", category: "مهاجم" },
-      { id: "2", title: "لحظة تسديد", imageUrl: "../imgs/khaled/10.jpg", category: "مهاجم" },
-      { id: "1", title: "احتفال هدف", imageUrl: "../imgs/khaled/11.jpg", category: "مهاجم" },
-      { id: "2", title: "لحظة تسديد", imageUrl: "../imgs/khaled/13.jpg", category: "مهاجم" },
-      { id: "1", title: "احتفال هدف", imageUrl: "../imgs/khaled/14.jpg.jpg", category: "مهاجم" },
-      { id: "2", title: "لحظة تسديد", imageUrl: "../imgs/khaled/16.jpg", category: "مهاجم" },
+      { id: "1", title: "بوستر 1", imageUrl: "../imgs/khaled/1.jpg", category: "مهاجم" },
+      { id: "2", title: "بوستر 2", imageUrl: "../imgs/khaled/1C.jpg", category: "مهاجم" },
+      { id: "3", title: "بوستر 3", imageUrl: "../imgs/khaled/2.jpg", category: "مهاجم" },
+      { id: "4", title: "بوستر 4", imageUrl: "../imgs/khaled/3.jpg", category: "مهاجم" },
+      { id: "5", title: "بوستر 5", imageUrl: "../imgs/khaled/4.jpg", category: "مهاجم" },
+      { id: "6", title: "بوستر 6", imageUrl: "../imgs/khaled/5.jpg", category: "مهاجم" },
+      { id: "7", title: "بوستر 7", imageUrl: "../imgs/khaled/6.jpg", category: "مهاجم" },
+      { id: "8", title: "بوستر 8", imageUrl: "../imgs/khaled/7.jpg", category: "مهاجم" },
+      { id: "9", title: "بوستر 9", imageUrl: "../imgs/khaled/8.jpg", category: "مهاجم" },
+      { id: "10", title: "بوستر 10", imageUrl: "../imgs/khaled/9.jpg", category: "مهاجم" },
+      { id: "11", title: "بوستر 11", imageUrl: "../imgs/khaled/10.jpg", category: "مهاجم" },
+      { id: "12", title: "بوستر 12", imageUrl: "../imgs/khaled/11.jpg", category: "مهاجم" },
+      { id: "13", title: "بوستر 13", imageUrl: "../imgs/khaled/12.jpg", category: "مهاجم" },
+      { id: "14", title: "بوستر 14", imageUrl: "../imgs/khaled/13.jpg", category: "مهاجم" },
+      { id: "15", title: "بوستر 15", imageUrl: "../imgs/khaled/14.jpg", category: "مهاجم" },
+      { id: "16", title: "بوستر 16", imageUrl: "../imgs/khaled/16.jpg", category: "مهاجم" },
     ],
   },
   {
@@ -37,7 +43,7 @@ export const players: Player[] = [
     name: "محمد العويس",
     avatarUrl: "https://picsum.photos/seed/p2/200/200",
     posters: [
-      { id: "3", title: "تصدي رائع", imageUrl: "https://picsum.photos/seed/pos3/1059/1488", category: "حارس" },
+      { id: "17", title: "تصدي رائع", imageUrl: "https://picsum.photos/seed/pos3/1059/1488", category: "حارس" },
     ],
   },
   {
@@ -45,8 +51,8 @@ export const players: Player[] = [
     name: "فريق الأبطال",
     avatarUrl: "https://picsum.photos/seed/p3/200/200",
     posters: [
-      { id: "4", title: "بوستر الفريق", imageUrl: "https://picsum.photos/seed/pos4/1059/1488", category: "فرق" },
-      { id: "5", title: "فوز الكأس", imageUrl: "https://picsum.photos/seed/pos5/1059/1488", category: "فرق" },
+      { id: "18", title: "بوستر الفريق", imageUrl: "https://picsum.photos/seed/pos4/1059/1488", category: "فرق" },
+      { id: "19", title: "فوز الكأس", imageUrl: "https://picsum.photos/seed/pos5/1059/1488", category: "فرق" },
     ],
   },
   {
@@ -54,7 +60,7 @@ export const players: Player[] = [
     name: "بطولة الخماسي",
     avatarUrl: "https://picsum.photos/seed/p4/200/200",
     posters: [
-      { id: "6", title: "نهائي الخماسي", imageUrl: "https://picsum.photos/seed/pos6/1059/1488", category: "خماسي" },
+      { id: "20", title: "نهائي الخماسي", imageUrl: "https://picsum.photos/seed/pos6/1059/1488", category: "خماسي" },
     ],
   },
   {
@@ -62,7 +68,7 @@ export const players: Player[] = [
     name: "كريستيانو رونالدو",
     avatarUrl: "https://picsum.photos/seed/p5/200/200",
     posters: [
-      { id: "7", title: "احتفال", imageUrl: "https://picsum.photos/seed/pos7/1059/1488", category: "مهاجم" },
+      { id: "21", title: "احتفال", imageUrl: "https://picsum.photos/seed/pos7/1059/1488", category: "مهاجم" },
     ],
   },
   {
@@ -70,7 +76,7 @@ export const players: Player[] = [
     name: "ليونيل ميسي",
     avatarUrl: "https://picsum.photos/seed/p6/200/200",
     posters: [
-      { id: "8", title: "كأس العالم", imageUrl: "https://picsum.photos/seed/pos8/1059/1488", category: "مهاجم" },
+      { id: "22", title: "كأس العالم", imageUrl: "https://picsum.photos/seed/pos8/1059/1488", category: "مهاجم" },
     ],
   },
   {
@@ -78,7 +84,7 @@ export const players: Player[] = [
     name: "كريم بنزيما",
     avatarUrl: "https://picsum.photos/seed/p7/200/200",
     posters: [
-      { id: "9", title: "الحكومة", imageUrl: "https://picsum.photos/seed/pos9/1059/1488", category: "مهاجم" },
+      { id: "23", title: "الحكومة", imageUrl: "https://picsum.photos/seed/pos9/1059/1488", category: "مهاجم" },
     ],
   },
   {
@@ -86,11 +92,16 @@ export const players: Player[] = [
     name: "ياسين بونو",
     avatarUrl: "https://picsum.photos/seed/p8/200/200",
     posters: [
-      { id: "10", title: "حائط الصد", imageUrl: "https://picsum.photos/seed/pos10/1059/1488", category: "حارس" },
+      { id: "24", title: "حائط الصد", imageUrl: "https://picsum.photos/seed/pos10/1059/1488", category: "حارس" },
     ],
   }
 ];
 
-export const allPosters: (Poster & { playerId: string; playerName: string })[] = players.flatMap(player => 
-  player.posters.map(poster => ({ ...poster, playerId: player.id, playerName: player.name }))
-);
+export const allPosters: (Poster & { playerId: string; playerName: string })[] =
+  players.flatMap(player =>
+    player.posters.map(poster => ({
+      ...poster,
+      playerId: player.id,
+      playerName: player.name
+    }))
+  );
