@@ -17,11 +17,19 @@ export const categories = ["الكل", "مهاجم", "حارس", "خماسي", "
 export const players: Player[] = [
   {
     id: "p1",
-    name: "عمر السومة",
-    avatarUrl: "https://picsum.photos/seed/p1/200/200",
+    name: "خالد رونالدو",
+    avatarUrl: "../imgs/khaled/15.jpg",
     posters: [
-      { id: "1", title: "احتفال هدف", imageUrl: "https://picsum.photos/seed/pos1/1059/1488", category: "مهاجم" },
-      { id: "2", title: "لحظة تسديد", imageUrl: "https://picsum.photos/seed/pos2/1059/1488", category: "مهاجم" },
+      { id: "1", title: "احتفال هدف", imageUrl: "../imgs/khaled/1C.jpg", category: "مهاجم" },
+      { id: "2", title: "لحظة تسديد", imageUrl: "../imgs/khaled/3.jpg", category: "مهاجم" },
+      { id: "1", title: "احتفال هدف", imageUrl: "../imgs/khaled/4.jpg", category: "مهاجم" },
+      { id: "2", title: "لحظة تسديد", imageUrl: "../imgs/khaled/5.jpg", category: "مهاجم" },
+      { id: "1", title: "احتفال هدف", imageUrl: "../imgs/khaled/6.jpg", category: "مهاجم" },
+      { id: "2", title: "لحظة تسديد", imageUrl: "../imgs/khaled/10.jpg", category: "مهاجم" },
+      { id: "1", title: "احتفال هدف", imageUrl: "../imgs/khaled/11.jpg", category: "مهاجم" },
+      { id: "2", title: "لحظة تسديد", imageUrl: "../imgs/khaled/13.jpg", category: "مهاجم" },
+      { id: "1", title: "احتفال هدف", imageUrl: "../imgs/khaled/14.jpg.jpg", category: "مهاجم" },
+      { id: "2", title: "لحظة تسديد", imageUrl: "../imgs/khaled/16.jpg", category: "مهاجم" },
     ],
   },
   {
