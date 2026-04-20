@@ -39,11 +39,11 @@ export const players: Player[] = [
     avatarUrl: "/public/imgs/moaz/1.jpg",
     posters: [
       { id: "17", title: "بوستر 1", imageUrl: "/imgs/moaz/1.jpg", category: "حارس" },
-      { id: "18", title: "بوستر 2", imageUrl: "/imgs/moaz/2.jpg", category: "حارس" },
-      { id: "19", title: "بوستر 3", imageUrl: "/imgs/moaz/3.jpg", category: "حارس" },
-      { id: "20", title: "بوستر 4", imageUrl: "/imgs/moaz/4.jpg", category: "حارس" },
-      { id: "21", title: "بوستر 5", imageUrl: "/imgs/moaz/5.jpg", category: "حارس" },
-      { id: "22", title: "بوستر 6", imageUrl: "/imgs/moaz/6.jpg", category: "حارس" },
+  { id: "18", title: "بوستر 2", imageUrl: "/imgs/moaz/2.jpg", category: "حارس" },
+  { id: "19", title: "بوستر 3", imageUrl: "/imgs/moaz/3.jpg", category: "حارس" },
+  { id: "20", title: "بوستر 4", imageUrl: "/imgs/moaz/4.jpg", category: "حارس" },
+  { id: "21", title: "بوستر 5", imageUrl: "/imgs/moaz/5.jpg", category: "حارس" },
+  { id: "22", title: "بوستر 6", imageUrl: "/imgs/moaz/6.jpg", category: "حارس" },
     ],
   },
   {
