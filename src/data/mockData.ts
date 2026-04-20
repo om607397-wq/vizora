@@ -3,6 +3,7 @@ export type Poster = {
   title: string;
   imageUrl: string;
   category: "مهاجم" | "حارس" | "خماسي" | "فرق";
+  hideFromHome?: boolean; // أضفنا هذه الخاصية لإخفاء البوستر من الصفحة الرئيسية
 };
 
 export type Player = {
@@ -10,6 +11,7 @@ export type Player = {
   name: string;
   avatarUrl: string;
   posters: Poster[];
+  hideFromHome?: boolean; // إخفاء كل صور هذا اللاعب من الرئيسية
 };
 
 export const categories = ["الكل", "مهاجم", "حارس", "خماسي", "فرق"] as const;
@@ -18,12 +20,21 @@ export const players: Player[] = [
   {
     id: "p1",
     name: "عمر السومة",
-    avatarUrl: "https://picsum.photos/seed/p1/200/200",
+    avatarUrl: "/imgs/khaled/15.jpg",
     posters: [
-      { id: "1", title: "احتفال هدف", imageUrl: "https://picsum.photos/seed/pos1/1059/1488", category: "مهاجم" },
-      { id: "2", title: "لحظة تسديد", imageUrl: "https://picsum.photos/seed/pos2/1059/1488", category: "مهاجم" },
-      { id: "20", title: "لحظة تسديد", imageUrl: "https://picsum.photos/seed/pos2/1059/1488", category: "مهاجم" },
-      { id: "21", title: "لحظة تسديد", imageUrl: "https://picsum.photos/seed/pos2/1059/1488", category: "مهاجم" },
+      { id: "k1", title: "بوستر 1", imageUrl: "/imgs/khaled/4.jpg", category: "مهاجم" },
+      { id: "k2", title: "بوستر 2", imageUrl: "/imgs/khaled/1C.jpg", category: "مهاجم" },
+      { id: "k3", title: "بوستر 3", imageUrl: "/imgs/khaled/2.jpg", category: "مهاجم" },
+      { id: "k4", title: "بوستر 4", imageUrl: "/imgs/khaled/3.jpg", category: "مهاجم" },
+      { id: "k5", title: "بوستر 5", imageUrl: "/imgs/khaled/5.jpg", category: "مهاجم" },
+      { id: "k6", title: "بوستر 6", imageUrl: "/imgs/khaled/6.jpg", category: "مهاجم" },
+      { id: "k7", title: "بوستر 7", imageUrl: "/imgs/khaled/10.jpg", category: "مهاجم" },
+      { id: "k8", title: "بوستر 8", imageUrl: "/imgs/khaled/11.jpg", category: "مهاجم" },
+      { id: "k9", title: "بوستر 9", imageUrl: "/imgs/khaled/13.jpg", category: "مهاجم" },
+      { id: "k10", title: "بوستر 10", imageUrl: "/imgs/khaled/14.jpg", category: "مهاجم" },
+      { id: "k11", title: "بوستر 11", imageUrl: "/imgs/khaled/16.jpg", category: "مهاجم" },
+      // هذا البوستر سيظهر للعميل الخاص فقط ولن يظهر في الواجهة الرئيسية
+      { id: "hidden_1", title: "تصميم خاص جداً", imageUrl: "/imgs/khaled/15.jpg", category: "مهاجم", hideFromHome: true },
     ],
   },
   {
@@ -85,6 +96,10 @@ export const players: Player[] = [
   }
 ];
 
-export const allPosters: (Poster & { playerId: string; playerName: string })[] = players.flatMap(player => 
-  player.posters.map(poster => ({ ...poster, playerId: player.id, playerName: player.name }))
-);
+export const allPosters: (Poster & { playerId: string; playerName: string })[] = players
+  .filter(player => !player.hideFromHome)
+  .flatMap(player => 
+    player.posters
+      .filter(poster => !poster.hideFromHome)
+      .map(poster => ({ ...poster, playerId: player.id, playerName: player.name }))
+  );

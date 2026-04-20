@@ -52,10 +52,18 @@ export function Portfolio() {
     }
   };
 
-  // Flatten the array so all posters are visible side by side
-  const allPosters = players.flatMap(player => 
-    player.posters.map(poster => ({ ...poster, player }))
-  );
+  // Flatten the array and get exactly ONE poster per player (who is not hidden)
+  const coverPosters = players
+    .filter(player => !player.hideFromHome)
+    .map(player => {
+      // Find the first poster that is not hidden
+      const coverPoster = player.posters.find(poster => !poster.hideFromHome);
+      if (coverPoster) {
+        return { ...coverPoster, player };
+      }
+      return null;
+    })
+    .filter((item): item is NonNullable<typeof item> => item !== null);
 
   return (
     <section id="portfolio" className="py-[120px] bg-vizora-black border-t border-[#333] relative overflow-hidden group/section">
@@ -100,7 +108,7 @@ export function Portfolio() {
           className="flex gap-[30px] overflow-x-auto px-6 lg:px-[60px] pb-12 snap-x snap-mandatory cursor-grab select-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
           <AnimatePresence mode="popLayout">
-            {allPosters.map((item, index) => (
+            {coverPosters.map((item, index) => (
               <motion.div
                 key={`${item.player.id}-${item.id}-${index}`}
                 layout
