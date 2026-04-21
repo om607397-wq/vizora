@@ -153,8 +153,8 @@ export function Hero() {
                 </div>
                 
                 <div className="absolute bottom-5 right-5 text-right z-20">
-                  <div className="text-[24px] font-black leading-none mb-1">محمد صلاح</div>
-                  <div className="text-[12px] font-bold text-vizora-green tracking-widest">LIVERPOOL FC</div>
+                  <div className="text-[24px] font-black leading-none mb-1">فيزورا</div>
+                  <div className="text-[12px] font-bold text-vizora-green tracking-widest">VIZORA</div>
                 </div>
               </motion.div>
             </motion.div>

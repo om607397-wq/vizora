@@ -39,7 +39,7 @@ export function ContactAndPayment() {
             </p>
             
             <div className="bg-vizora-black border-2 border-vizora-green text-vizora-green text-[28px] md:text-[32px] font-black tracking-wider px-8 py-4 rounded-[4px] shadow-[0_0_20px_rgba(204,255,0,0.2)]">
-              01000000000
+              01030100938
             </div>
           </motion.div>
 
@@ -60,7 +60,7 @@ export function ContactAndPayment() {
               </div>
               <div>
                 <div className="text-[14px] text-[#AAAAAA] mb-1">واتساب (مباشر)</div>
-                <div className="text-[20px] font-bold text-white group-hover:text-[#25D366] transition-colors" dir="ltr">+20 100 000 0000</div>
+                <div className="text-[20px] font-bold text-white group-hover:text-[#25D366] transition-colors" dir="ltr">+20 1032832715</div>
               </div>
             </a>
 
@@ -70,7 +70,7 @@ export function ContactAndPayment() {
               </div>
               <div>
                 <div className="text-[14px] text-[#AAAAAA] mb-1">اتصال هاتفي</div>
-                <div className="text-[20px] font-bold text-white group-hover:text-blue-500 transition-colors" dir="ltr">+20 100 000 0000</div>
+                <div className="text-[20px] font-bold text-white group-hover:text-blue-500 transition-colors" dir="ltr">+20 1032832715</div>
               </div>
             </a>
 

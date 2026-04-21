@@ -13,7 +13,7 @@ export function OrderFlow() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const message = `مرحباً Vizora!%0Aأريد طلب تصميم بوستر جديد:%0A%0Aالاسم: ${formData.name}%0Aرقم الواتساب: ${formData.phone}%0Aنوع البوستر: ${formData.type === 'normal' ? 'عادي' : 'برو (احترافي)'}%0Aملاحظات: ${formData.notes}%0A%0A*الرجاء إرفاق الصورة المطلوبة بعد إرسال هذه الرسالة.*`;
-    const whatsappUrl = `https://wa.me/201000000000?text=${message}`;
+    const whatsappUrl = `https://wa.me/201032832715?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
 
