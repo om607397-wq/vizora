@@ -3,10 +3,13 @@ import { GripVertical } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 const IMAGE_PAIRS = [
-  { id: 1, before: "https://picsum.photos/seed/b1/1059/1488?grayscale", after: "https://picsum.photos/seed/a1/1059/1488" },
-  { id: 2, before: "https://picsum.photos/seed/b2/1059/1488?grayscale", after: "https://picsum.photos/seed/a2/1059/1488" },
-  { id: 3, before: "https://picsum.photos/seed/b3/1059/1488?grayscale", after: "https://picsum.photos/seed/a3/1059/1488" },
-  { id: 4, before: "https://picsum.photos/seed/b4/1059/1488?grayscale", after: "https://picsum.photos/seed/a4/1059/1488" },
+  { id: 1, before: "/imgs/trans/15.jpg", after: "/imgs/khaled/15.jpg" },
+
+  { id: 2, before: "/imgs/trans/2.jpg", after: "/imgs/mohamed/2.jpg" },
+
+  { id: 3, before: "/imgs/trans/1.jpg", after: "/imgs/ahmed/1.jpg" },
+
+  { id: 4, before: "/imgs/trans/4.jpg", after: "/imgs/sasa/4.jpg" },
 ];
 
 export function Videos() {

@@ -5,10 +5,13 @@ import { ChevronRight, ChevronLeft, Play } from "lucide-react";
 
 // Placeholder video from W3C or generic public domain
 const MOCK_VIDEOS = [
-  { id: 1, title: "تحويل محمد صلاح", videoUrl: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4", thumbnail: "https://picsum.photos/seed/v1/1059/1488" },
-  { id: 2, title: "كواليس تصميم رونالدو", videoUrl: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4", thumbnail: "https://picsum.photos/seed/v2/1059/1488" },
-  { id: 3, title: "تحويل ميسي", videoUrl: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4", thumbnail: "https://picsum.photos/seed/v3/1059/1488" },
-  { id: 4, title: "تصميم هالاند", videoUrl: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4", thumbnail: "https://picsum.photos/seed/v4/1059/1488" },
+{ id: 1, title: "تحويل معاذ جابر", videoUrl: "/imgs/1.mp4", thumbnail: "/imgs/1.jpg" },
+
+{ id: 2, title: "تحويل خالد رونالدو", videoUrl: "/imgs/2.mp4", thumbnail: "/imgs/2.jpg" },
+
+{ id: 3, title: "تحويل صاصا", videoUrl: "/imgs/3.mp4", thumbnail: "/imgs/3.jpg" },
+
+{ id: 4, title: "تصميم مصطفي", videoUrl: "/imgs/4.mp4", thumbnail: "/imgs/4.jpg" },
 ];
 
 export function TransformationVideos() {

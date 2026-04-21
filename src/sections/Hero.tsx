@@ -142,7 +142,7 @@ export function Hero() {
                 <div 
                   className="absolute inset-0 z-0 opacity-90"
                   style={{
-                    backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.9), transparent), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=400')",
+                    backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.9), transparent), url('/imgs/Logo.png')"                    
                     backgroundSize: "cover",
                     backgroundPosition: "center"
                   }}
@@ -189,13 +189,15 @@ export function Hero() {
 
           <div className="flex gap-[15px]">
             <div className="w-[60px] h-[80px] bg-[#333] rounded opacity-60 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=100" className="w-full h-full object-cover" />
+              <img src="/imgs/khaled/4.jpg" className="w-full h-full object-cover" />
             </div>
+
             <div className="w-[60px] h-[80px] bg-[#333] rounded border border-vizora-green opacity-100 overflow-hidden relative shadow-[0_0_15px_rgba(204,255,0,0.2)]">
-              <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=100" className="w-full h-full object-cover" />
+              <img src="/imgs/moaz/4.jpg" className="w-full h-full object-cover" />
             </div>
+
             <div className="w-[60px] h-[80px] bg-[#333] rounded opacity-60 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?w=100" className="w-full h-full object-cover" />
+              <img src="/imgs/mohamed/4.jpg" className="w-full h-full object-cover" />
             </div>
             
             <div className="flex flex-col justify-center mr-2">

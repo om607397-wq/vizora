@@ -52,7 +52,7 @@ export const players: Player[] = [
   },
   {
     id: "p1",
-    name: "youssef hamdy",
+    name: "يوسف حمدي",
     avatarUrl: "/imgs/youssef hamdy/2.jpg",
     posters: [
       { id: "yh1", title: "بوستر 1", imageUrl: "/imgs/youssef hamdy/1.jpg", category: "مهاجم" },
@@ -63,7 +63,7 @@ export const players: Player[] = [
   },
   {
     id: "p2",
-    name: "youssef",
+    name: "يوسف ",
     avatarUrl: "/imgs/youssef/2.jpg",
     posters: [
       { id: "y1", imageUrl: "/imgs/youssef/1.jpg", title: "بوستر", category: "مهاجم" },
@@ -76,7 +76,7 @@ export const players: Player[] = [
   },
   {
     id: "p3",
-    name: "youssef2",
+    name: "يوسف",
     avatarUrl: "/imgs/youssef2/2.jpg",
     posters: [
       { id: "y21", imageUrl: "/imgs/youssef2/1.jpg", title: "بوستر", category: "مهاجم" },
@@ -87,7 +87,7 @@ export const players: Player[] = [
   },
   {
     id: "p4",
-    name: "youssef3",
+    name: "يوسف",
     avatarUrl: "/imgs/youssef3/2.jpg",
     posters: [
       { id: "y31", imageUrl: "/imgs/youssef3/1.jpg", title: "بوستر", category: "مهاجم" },
@@ -97,7 +97,7 @@ export const players: Player[] = [
   },
   {
     id: "p5",
-    name: "ziad",
+    name: "زياد",
     avatarUrl: "/imgs/ziad/2.jpg",
     posters: [
       { id: "z1", imageUrl: "/imgs/ziad/1.jpg", title: "بوستر", category: "مهاجم" },
@@ -106,7 +106,7 @@ export const players: Player[] = [
   },
   {
     id: "p6",
-    name: "mohamed",
+    name: "محمد",
     avatarUrl: "/imgs/mohamed/2.jpg",
     posters: [
       { id: "m1", imageUrl: "/imgs/mohamed/1.jpg", title: "بوستر", category: "مهاجم" },
@@ -121,7 +121,7 @@ export const players: Player[] = [
   },
   {
     id: "p7",
-    name: "mohamed2",
+    name: "محمد",
     avatarUrl: "/imgs/mohamed2/2.jpg",
     posters: [
       { id: "m21", imageUrl: "/imgs/mohamed2/1.jpg", title: "بوستر", category: "مهاجم" },
@@ -131,7 +131,7 @@ export const players: Player[] = [
   },
   {
     id: "p8",
-    name: "sasa",
+    name: "مصطفي صاصا",
     avatarUrl: "/imgs/sasa/2.jpg",
     posters: Array.from({ length: 18 }, (_, i) => ({
       id: `s${i + 1}`,
@@ -142,7 +142,7 @@ export const players: Player[] = [
   },
   {
     id: "p9",
-    name: "mostafa",
+    name: "مصطفي",
     avatarUrl: "/imgs/mostafa/2.jpg",
     posters: [
       { id: "mo1", imageUrl: "/imgs/mostafa/1.jpg", title: "بوستر", category: "مهاجم" },
@@ -153,7 +153,7 @@ export const players: Player[] = [
   },
   {
     id: "p10",
-    name: "ahmed",
+    name: "احمد",
     avatarUrl: "/imgs/ahmed/2.jpg",
     posters: [
       { id: "a1", imageUrl: "/imgs/ahmed/1.jpg", title: "بوستر", category: "مهاجم" },
