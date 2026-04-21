@@ -141,11 +141,11 @@ export function Hero() {
               >
                 <div 
                   className="absolute inset-0 z-0 opacity-90"
-                  style={{
-                    backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.9), transparent), url('/imgs/Logo.png')"                    
-                    backgroundSize: "cover",
-                    backgroundPosition: "center"
-                  }}
+              style={{
+                backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.9), transparent), url('/imgs/Logo.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center"
+              }}
                 />
                 
                 <div className="absolute top-5 -right-5 bg-vizora-green text-vizora-black px-5 py-2 font-black rotate-[3deg] z-20">
