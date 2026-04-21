@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 
 export function WhatsAppFab() {
-  const whatsappUrl = "https://wa.me/201000000000"; // Replace with real number
+  const whatsappUrl = "https://wa.me/201032832715"; // Replace with real number
   
   return (
     <a

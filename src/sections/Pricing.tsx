@@ -4,7 +4,7 @@ import { Check, Star, Zap, Palette, Camera } from "lucide-react";
 export function Pricing() {
   const handleOrder = (packageName: string) => {
     const message = `مرحباً Vizora!%0Aأريد الاشتراك في: ${packageName}%0Aأرجو تزويدي بالتفاصيل وكيفية إرسال الصور.`;
-    const whatsappUrl = `https://wa.me/201000000000?text=${message}`;
+    const whatsappUrl = `https://wa.me/201032832715?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
 
