@@ -61,11 +61,24 @@ export function SpinWheel() {
 
     // Calculate rotation
     const segmentAngle = 360 / SEGMENTS.length;
-    const targetRotationOffset = 360 - (winningIndex * segmentAngle);
-    const extraSpins = 5 * 360;
-    const randomOffset = (Math.random() * 40) - 20;
+    // We want the wheel to spin so that the 'winningIndex' segment is at the top (0 degrees).
+    // The center of 'winningIndex' is at `winningIndex * segmentAngle + segmentAngle / 2`.
+    // To align it with the top, we need to rotate it by `360 - centerOfSegment`.
+    const winningCenterAngle = (winningIndex * segmentAngle) + (segmentAngle / 2);
+    // Add randomness within the segment, keeping it safely away from the absolute edges
+    const safeRandomOffset = (Math.random() * (segmentAngle * 0.6)) - (segmentAngle * 0.3); 
+    const targetRotationOffset = 360 - winningCenterAngle + safeRandomOffset;
 
-    const finalRotation = rotation + extraSpins + targetRotationOffset + randomOffset;
+    const extraSpins = 5 * 360;
+    
+    // Instead of accumulating rotation endlessly (which messes up % 360 calculations if we just add),
+    // let's calculate the absolute next rotation from the current one.
+    // Find how much we need to rotate to get to '0' from current rotation
+    const currentMod = rotation % 360;
+    const rotationNeededToReach0 = 360 - currentMod;
+    
+    const finalRotation = rotation + rotationNeededToReach0 + extraSpins + targetRotationOffset;
+
     setRotation(finalRotation);
 
     setTimeout(() => {
@@ -152,7 +165,7 @@ export function SpinWheel() {
               
               {result.type === 'win' ? (
                 <a 
-                  href={`https://wa.me/201000000000?text=${getWhatsAppMessage(result.label)}`}
+                  href={`https://wa.me/201032832715?text=${getWhatsAppMessage(result.label)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 bg-vizora-green text-vizora-black py-4 px-6 rounded-[6px] font-black text-[18px] hover:scale-105 transition-transform w-full shadow-[0_0_20px_rgba(204,255,0,0.3)]"
