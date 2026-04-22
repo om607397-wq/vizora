@@ -1,7 +1,7 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronRight, ChevronLeft, Play } from "lucide-react";
+import { ChevronRight, ChevronLeft, Play, Pause } from "lucide-react";
 
 // Placeholder video from W3C or generic public domain
 const MOCK_VIDEOS = [
@@ -15,11 +15,74 @@ const MOCK_VIDEOS = [
 ];
 
 export function TransformationVideos() {
+  const sectionRef = useRef<HTMLElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+
   const dragged = useRef(false);
   let isDown = false;
   let startX = 0;
   let scrollLeft = 0;
+
+  // Autoplay first video when section comes into view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && playingIndex === null) {
+          // Play the first video once the section is 50% visible
+          setPlayingIndex(0);
+          observer.disconnect(); // Only trigger on first scroll-in
+        }
+      },
+      { threshold: 0.5 }
+    );
+    
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      observer.disconnect();
+    };
+  }, [playingIndex]);
+
+  // Handle play/pause sync when playingIndex changes
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (!video) return;
+      if (index === playingIndex) {
+        video.currentTime = 0;
+        // Need to add pointer-events logic correctly on playback
+        video.play().catch(err => console.log("Autoplay blocked:", err));
+      } else {
+        video.pause();
+      }
+    });
+
+    // Make sure pointer events on the container allow scrolling on mobile
+  }, [playingIndex]);
+
+  const handleVideoEnded = (index: number) => {
+    const nextIndex = index + 1;
+    if (nextIndex < MOCK_VIDEOS.length) {
+      setPlayingIndex(nextIndex);
+      // Optional: Auto-scroll to the next video
+      if (scrollRef.current && videoRefs.current[nextIndex] && videoRefs.current[nextIndex]?.parentElement) {
+        // @ts-ignore
+        videoRefs.current[nextIndex].parentElement.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      }
+    } else {
+      setPlayingIndex(null); // End of sequence
+    }
+  };
+
+  const toggleVideo = (index: number) => {
+    if (dragged.current) return;
+    if (playingIndex === index) {
+      setPlayingIndex(null); // Pause current
+    } else {
+      setPlayingIndex(index); // Play this one and pause others
+    }
+  };
 
   const handleMouseDown = (e: React.MouseEvent) => {
     isDown = true;
@@ -62,23 +125,8 @@ export function TransformationVideos() {
     }
   };
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    const video = e.currentTarget.querySelector('video');
-    if (video) {
-      video.play().catch(err => console.log("Video autoplay blocked", err));
-    }
-  };
-
-  const handleMouseLeaveVideo = (e: React.MouseEvent<HTMLDivElement>) => {
-    const video = e.currentTarget.querySelector('video');
-    if (video) {
-      video.pause();
-      video.currentTime = 0; // reset
-    }
-  };
-
   return (
-    <section id="transformation-videos" className="py-[120px] bg-vizora-dark border-t border-[#333] relative overflow-hidden group/section">
+    <section ref={sectionRef} id="transformation-videos" className="py-[120px] bg-vizora-dark border-t border-[#333] relative overflow-hidden group/section">
       <div className="max-w-[1200px] w-full mx-auto px-6 lg:px-[60px] pb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
@@ -119,58 +167,71 @@ export function TransformationVideos() {
           className="flex gap-[30px] overflow-x-auto px-6 lg:px-[60px] pb-12 snap-x snap-mandatory cursor-grab select-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
           <AnimatePresence mode="popLayout">
-            {MOCK_VIDEOS.map((item, index) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="w-[80vw] sm:w-[calc(50%-15px)] md:w-[calc(33.333%-20px)] lg:w-[calc(25%-22.5px)] shrink-0 snap-center"
-              >
-                <div 
-                  className="group block relative aspect-[1059/1488] w-full mx-auto overflow-hidden bg-vizora-black border-2 border-[#222] hover:border-vizora-green transition-all shadow-lg hover:shadow-[0_0_30px_rgba(204,255,0,0.15)] rounded-[4px]"
-                  draggable="false"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeaveVideo}
+            {MOCK_VIDEOS.map((item, index) => {
+              const isPlaying = playingIndex === index;
+              return (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="w-[80vw] sm:w-[calc(50%-15px)] md:w-[calc(33.333%-20px)] lg:w-[calc(25%-22.5px)] shrink-0 snap-center"
                 >
-                  {/* Poster Thumbnail */}
-                  <img 
-                    src={item.thumbnail} 
-                    alt={item.title}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 group-hover:opacity-0"
+                  <div 
+                    className={`group block relative aspect-[1059/1488] w-full mx-auto overflow-hidden bg-vizora-black border-2 transition-all shadow-lg rounded-[4px] cursor-pointer ${isPlaying ? 'border-vizora-green shadow-[0_0_30px_rgba(204,255,0,0.15)]' : 'border-[#222] hover:border-[#444]'}`}
                     draggable="false"
-                    referrerPolicy="no-referrer"
-                  />
-                  
-                  {/* Hover Video */}
-                  <video 
-                    src={item.videoUrl}
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  />
+                    onClick={() => toggleVideo(index)}
+                  >
+                    {/* Poster Thumbnail */}
+                    <img 
+                      src={item.thumbnail} 
+                      alt={item.title}
+                      loading="lazy"
+                      className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-100 group-hover:opacity-80'}`}
+                      draggable="false"
+                      referrerPolicy="no-referrer"
+                    />
+                    
+                    {/* Video Elements */}
+                    <video 
+                      ref={el => {
+                        if (el) {
+                           videoRefs.current[index] = el;
+                        }
+                      }}
+                      src={item.videoUrl}
+                      onEnded={() => handleVideoEnded(index)}
+                      muted
+                      webkit-playsinline="true"
+                      playsInline
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}
+                    />
 
-                  {/* Play icon overlay */}
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
-                    <div className="w-16 h-16 rounded-full bg-vizora-green/90 text-vizora-black flex items-center justify-center pl-1 shadow-[0_0_20px_rgba(204,255,0,0.4)]">
-                      <Play size={24} fill="currentColor" />
+                    {/* Play/Pause icon overlay */}
+                    <div className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 pointer-events-none ${isPlaying ? 'opacity-0' : 'opacity-100 group-hover:opacity-100'}`}>
+                      <div className="w-16 h-16 rounded-full bg-vizora-green/90 text-vizora-black flex items-center justify-center pl-1 shadow-[0_0_20px_rgba(204,255,0,0.4)] transition-transform group-hover:scale-110">
+                        <Play size={24} fill="currentColor" />
+                      </div>
+                    </div>
+                    
+                    {/* Pause icon when playing (briefly visible on hover / tap to indicate pause action) */}
+                    <div className={`absolute top-4 right-4 bg-black/60 rounded-full p-3 transition-opacity duration-300 pointer-events-none ${isPlaying ? 'opacity-100' : 'opacity-0'}`}>
+                       <Pause size={20} className="text-white fill-white" />
+                    </div>
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 transition-opacity pointer-events-none" />
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-6 transition-transform pointer-events-none">
+                      <h3 className={`font-black text-[20px] leading-tight mb-2 transition-colors line-clamp-1 ${isPlaying ? 'text-vizora-green' : 'text-white'}`}>
+                        {item.title}
+                      </h3>
                     </div>
                   </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none">
-                    <h3 className="font-black text-[20px] text-white leading-tight mb-2 group-hover:text-vizora-green transition-colors line-clamp-1">
-                      {item.title}
-                    </h3>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </div>
         
