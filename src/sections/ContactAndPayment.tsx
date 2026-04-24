@@ -54,7 +54,7 @@ export function ContactAndPayment() {
               معلومات الاتصال
             </h3>
 
-            <a href="https://wa.me/201000000000" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+            <a href="https://wa.me/201032832715" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
               <div className="w-14 h-14 bg-[#25D366]/10 text-[#25D366] rounded-full flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors">
                 <MessageCircle size={28} />
               </div>
@@ -64,7 +64,7 @@ export function ContactAndPayment() {
               </div>
             </a>
 
-            <a href="tel:+201000000000" className="flex items-center gap-4 group">
+            <a href="tel:+201032832715" className="flex items-center gap-4 group">
               <div className="w-14 h-14 bg-blue-500/10 text-blue-500 rounded-full flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
                 <Phone size={28} />
               </div>
